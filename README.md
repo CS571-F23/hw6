@@ -41,6 +41,8 @@ Some work has already been done for you! In `BadgerApp.jsx`, we create the *rout
 
 In the `NavDropdown` within `BadgerLayout.jsx`, create `NavDropdown.Item` [(docs)](https://react-bootstrap.netlify.app/docs/components/navs#using-dropdowns) for each chatroom underneath the "Chatrooms". You can add `as={Link}` to make the dropdown item act as a link. Refer to HW5 for an example of how this is done.
 
+![](_figures/step1.png)
+
 ### 2. Display Badger Messages
 
 In `BadgerChatroom.jsx`, fetch the data for the first page of messages and display them as `BadgerMessage` components.
@@ -51,6 +53,8 @@ Be sure to use [react-bootstrap](https://www.npmjs.com/package/react-bootstrap) 
 
 **Note:** This is a public forum, so you do not need to be logged in to read messages!
 
+![](_figures/step2.png)
+
 ### 3. Use Pagination
 
 In `BadgerChatroom.jsx`, add four `Pagination.Item` to the bottom of the screen. Adjust your code from Step 2 so that when the user is on page 1, the first page of results is shown; when the user is on page 2, the second page of results is shown, and so on. Not all pages may be populated, in this case simply display "There are no messages on  this page yet."
@@ -59,9 +63,13 @@ The active page should appear blue. You may hardcode the four `Pagination.Item`.
 
 **Note:** The BadgerChat API will save up to the latest 100 messages divided among these 4 pages; each page will contain up to 25 messages. 
 
+![](_figures/step3.png)
+
 ### 4. Allow Registration
 
 In `BadgerRegister.jsx`, create a form using **controlled** input components that allows a user to create a username, password, and confirm their password. Upon clicking a "Register" button, a `POST` should be performed to create the user via the API.
+
+Both the password and confirmation password [must be masked](https://react-bootstrap.netlify.app/docs/forms/form-control#readonly-plain-text) and **NOT** shown in plaintext.
 
 *Before* performing the API call you should handle the following cases...
  - If the user does not enter a username or password, display an `alert` saying "You must provide both a username and password!"
@@ -76,10 +84,13 @@ You do not need to handle any other user input failures. We will expand on the r
 
 Don't forget the fetch option to include credentials!
 
+![](_figures/step4.png)
 
 ### 5. Allow Login
 
 In `BadgerLogin.jsx`, create a form using **uncontrolled** input components that allows a user to enter their username and password. Upon clicking a "Login" button, a `POST` should be performed to authenticate the user via the API.
+
+The password [must be masked](https://react-bootstrap.netlify.app/docs/forms/form-control#readonly-plain-text) and **NOT** shown in plaintext.
 
 *Before* performing the API call you should handle the following cases...
  - If the user does not enter a username or password, display an `alert` saying "You must provide both a username and password!"
@@ -92,6 +103,8 @@ If the login was successful, `alert` the user that the login was successful.
 You do not need to handle any other user input failures. We will expand on the requirements of this step in Step 6.
 
 Don't forget the fetch option to include credentials!
+
+![](_figures/step5.png)
 
 ### 6. Managing Logged In State
 
@@ -111,9 +124,13 @@ Again, you do *not* need to account for the user's 1-hour `badgerchat_auth` expi
 
 Remember that you do *not* have access to the `badgerchat_auth` cookie as it is HTTPOnly -- you will need to use context and `sessionStorage` to solve this problem.
 
+![](_figures/step6.png)
+
 ### 7. Logout
 
 When the user navigates to the logout page, defined by `BadgerLogout.jsx`, they should be logged out of the application. Once again, some of the work has been done for you, but you will need to specify your `X-CS571-ID`. Based on your implementation of Step 6, you will also need to change your context and/or `sessionStorage`.
+
+![](_figures/step7.png)
 
 ### 8. Create Posts
 
@@ -128,6 +145,8 @@ You do not need to handle any other user input failures.
 
 Don't forget the fetch option to include credentials!
 
+![](_figures/step8.png)
+
 ### Step 9: Delete Posts
 
 Add the option for a user to delete *their own* posts. A red "Delete" button should be shown for each post that a user owns (but not for others' posts).
@@ -135,6 +154,8 @@ Add the option for a user to delete *their own* posts. A red "Delete" button sho
 *After* performing the API call you should `alert` the user that they have "Successfully deleted the post!" and you should reload the latest messages.
 
 This likely will require the child component `BadgerMessage.jsx` to talk back to its parent component `BadgerChatroom.jsx`; I would recommend passing a callback from parent to child component.
+
+![](_figures/step9.png)
 
 ### Step 10: Providing for Accessibility
 
